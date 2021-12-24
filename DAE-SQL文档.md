@@ -616,8 +616,8 @@ Nullable类型表示某个基础数据类型可以是Null值。其具体用法�
 
 ### 3.2 SQLTable 转换为Pandas Dataframe
 
-    from dae import sql
-    pdf=sql('select * from test_table').to_pandas()
+	from dae import sql
+	pdf=sql('select * from test_table').to_pandas()
 
 查询结果被转换成了Pandas dataframe，然后可以直接对pdf执行Pandas的相关操作，比如：
 
@@ -625,14 +625,13 @@ Nullable类型表示某个基础数据类型可以是Null值。其具体用法�
 
 ### 3.3  DAE Dataframe 转换为 SQLTable
 
-    from dae import sql 
-    import pandas as pd
-    data = [['Google',22],['baidu',20],['Wiki',13]]
-    df = pd.DataFrame(data, columns=['Site','Age'], dtype=float)
-    ds = dae.sql('select * FROM {df}')
-    ds.show()
+    from dae import sql
+	import pandas as pd
+	data = [['Google',22],['baidu',20],['Wiki',13]]
+	df = pd.DataFrame(data,columns=['Site','Age'], dtype=float)
+	ds = sql('select *FROM {df}').show()
 
-将一个dataframe对象df转换成了一个table，sql直接对其进行查询。
+可以用sql语句直接查询df。
 
 
 ​	
